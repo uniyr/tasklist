@@ -29,11 +29,11 @@ public class EditServlet extends HttpServlet {
 
         em.close();
 
-        // メッセージ情報とセッションIDをリクエストスコープに登録
+        // タスク情報とセッションIDをリクエストスコープに登録
         request.setAttribute("task", m);
         request.setAttribute("_token", request.getSession().getId());
 
-        // メッセージIDをセッションスコープに登録 編集画面で、入力欄に過去の記録（タスク内容）を表示するため。
+        // タスクIDをセッションスコープに登録 編集画面で、入力欄に過去の記録（タスク内容）を表示するため。
         request.getSession().setAttribute("task_id", m.getId());
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/edit.jsp");
